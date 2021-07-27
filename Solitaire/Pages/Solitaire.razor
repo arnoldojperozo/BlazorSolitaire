@@ -1,0 +1,36 @@
+﻿@page "/Solitaire"
+@using global::Solitaire.Models
+@using global::Solitaire.Models.Common.Enums
+@using global::Solitaire.Models.Piles
+
+@code {
+    //The card the user is currently dragging
+    public Card DraggedCard { get; set; }
+
+    public GameStatus Status { get; set; } = GameStatus.NotStarted;
+
+    //The three discarded cards being shown to the user.
+    //FirstDiscard is the topmost of these cards.
+    public Card FirstDiscard { get; set; }
+    public Card SecondDiscard { get; set; }
+    public Card ThirdDiscard { get; set; }
+
+    CardDeck DrawDeck = new CardDeck();
+    
+    //All discarded cards not shown to the user.
+    DiscardPile DiscardPile = new DiscardPile();
+
+    SuitPile ClubsPile = new SuitPile(CardSuit.Clubs);
+    SuitPile DiamondsPile = new SuitPile(CardSuit.Diamonds);
+    SuitPile SpadesPile = new SuitPile(CardSuit.Spades);
+    SuitPile HeartsPile = new SuitPile(CardSuit.Hearts);
+
+    //Stack piles are numbered from left to right (1 is leftmost).
+    StackPile StackPile1 = new StackPile();
+    StackPile StackPile2 = new StackPile();
+    StackPile StackPile3 = new StackPile();
+    StackPile StackPile4 = new StackPile();
+    StackPile StackPile5 = new StackPile();
+    StackPile StackPile6 = new StackPile();
+    StackPile StackPile7 = new StackPile();
+}
